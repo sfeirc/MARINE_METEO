@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo Marine - Race For Water</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="ocean-background">
+        <div class="waves"></div>
+        <div class="particles"></div>
+        <div class="gradient-overlay"></div>
+        <div class="animated-circles"></div>
+        <div class="floating-bubbles"></div>
+    </div>
+
+    <main>
+        <header>
+            <div class="logo-container">
+                <div class="logo-animation">
+                    <lottie-player 
+                        src="https://assets2.lottiefiles.com/packages/lf20_qm8eqzse.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 100px; height: 100px;"
+                        loop
+                        autoplay>
+                    </lottie-player>
+                </div>
+                <h1>Météo Marine</h1>
+            </div>
+            <br>
+        </header>
+
+        <section class="weather-container" aria-live="polite">
+            <div class="glass-card search-card">
+                <div class="card-decoration">
+                    <div class="glow-effect"></div>
+                    <div class="shimmer-lines"></div>
+                </div>
+                <div class="location-input">
+                    <div class="input-group">
+                        <div class="search-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="location" 
+                               placeholder="Rechercher une ville..." 
+                               aria-label="Rechercher une ville"
+                               autocomplete="off">
+                        <div class="autocomplete-suggestions" role="listbox"></div>
+                        <button type="button" id="search-btn">
+                            <span class="button-text">Rechercher</span>
+                        </button>
+                    </div>
+                    <div class="popular-cities">
+                        <div class="cities-title">Villes populaires</div>
+                        <span class="city-tag" data-city="paris">Paris</span>
+                        <span class="city-tag" data-city="marseille">Marseille</span>
+                        <span class="city-tag" data-city="lyon">Lyon</span>
+                        <span class="city-tag" data-city="bordeaux">Bordeaux</span>
+                    </div>
+                </div>
+            </div>
+                <br>
+            <div class="weather-display">
+                <div class="bento-grid">
+                    <div class="bento-item main-weather">
+                        <h2>Conditions actuelles</h2>
+                        <div class="main-weather-content">
+                            <div class="temperature-display">
+                                <span class="temp-value"></span>
+                                <div class="temp-details">
+                                    <span class="feels-like"></span>
+                                    <div class="weather-description"></div>
+                                </div>
+                            </div>
+                            <div class="weather-icon"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item wind-card">
+                        <h3>Vent</h3>
+                        <div class="wind-display">
+                            <div class="wind-compass">
+                                <div class="compass-arrow"></div>
+                            </div>
+                            <div class="wind-details"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item humidity-card">
+                        <h3>Humidité</h3>
+                        <div class="circular-progress">
+                            <div class="progress-value"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item precipitation-card">
+                        <h3>Précipitations</h3>
+                        <div class="precipitation-graph"></div>
+                    </div>
+                    
+                    <div class="bento-item uv-card">
+                        <h3>Indice UV</h3>
+                        <div class="uv-meter"></div>
+                    </div>
+                    
+                    <div class="bento-item air-quality-card">
+                        <h3>Qualité de l'air</h3>
+                        <div class="aqi-display"></div>
+                    </div>
+                    
+                    <div class="bento-item visibility-card">
+                        <h3>Visibilité</h3>
+                        <div class="visibility-meter"></div>
+                    </div>
+                    
+                    <div class="bento-item pressure-card">
+                        <h3>Pression</h3>
+                        <div class="pressure-gauge"></div>
+                    </div>
+                    
+                    <div class="bento-item cloud-cover-card">
+                        <h3>Couverture nuageuse</h3>
+                        <div class="cloud-layers"></div>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+        
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>© 2024 Météo Marine</p>
+                </div>
+                <div class="footer-center">
+                    <p>Développé avec ❤️ par 
+                        <a href="https://github.com/sfeirc" target="_blank" class="github-link">
+                            <span class="dev-name">Clovis SFEIR</span>
+                            <svg class="github-icon" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+                <div class="footer-right">
+                    <p>Race For Water Foundation</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
